@@ -1,13 +1,16 @@
 class ApplicationsController < ApplicationController
   def new
     @application = Application.new
+    @job = Job.find(params[:job_id])
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @application = Application.new(application_params)
+    @application.job = @job
 
-    if @application.save!
-      redirect_to @application
+    if @application.save
+      redirect_to application_path(@application)
     else
       render :new
     end
