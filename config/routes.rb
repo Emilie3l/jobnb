@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'applications/new'
+  get 'applications/create'
   get 'user/index'
   get 'user/show'
   get 'user/new'
