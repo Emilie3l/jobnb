@@ -4,3 +4,5 @@ class PagesController < ApplicationController
   def home
   end
 end
+
+#actions unrelated to models but for pages
