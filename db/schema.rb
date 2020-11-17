@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2020_11_16_221948) do
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "applicant_id", null: false
     t.bigint "job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_id"], name: "index_applications_on_applicant_id"
     t.index ["job_id"], name: "index_applications_on_job_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -52,6 +52,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_221948) do
   end
 
   add_foreign_key "applications", "jobs"
-  add_foreign_key "applications", "users"
+  add_foreign_key "applications", "users", column: "applicant_id"
   add_foreign_key "jobs", "users", column: "employer_id"
 end
