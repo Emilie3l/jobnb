@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <script src="typed.js"></script>
+
+  <div class="container text-home">
+    <div class="header">
+      <h1>I do my best work <span id="typed"></span></h1>
+    </div>
+
+    <div>
+      <%= link_to "Find a cool job 🔎", @jobs, class: "button button-home" %>
+    </div>
+  </div>
+
