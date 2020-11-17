@@ -11,3 +11,61 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.body {
+  background: linear-gradient(90deg, rgba(155,246,255,1) 0%, rgba(253,255,182,1) 88%, rgba(189,178,255,1) 100%);
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+  height: 250px;
+  margin: 8px;
+  position: relative;
+  border-radius: 15px;
+}
+.title-description {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+.description {
+  margin: 10px;
+}
+
+.pay {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 10px;
+}
+
+.start {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 10px;
+}
+
+.deadline {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 10px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.card-description {
+font-size: 12px;
+}
