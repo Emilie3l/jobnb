@@ -1,4 +1,4 @@
-class JobController < ApplicationController
+class JobsController < ApplicationController
   def index
     @jobs = Job.all
   end
@@ -14,8 +14,8 @@ class JobController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    if @job.save!
-      redirect_to @job
+    if @job.save
+      redirect_to job_path(@job)
     else
       render :new
     end
@@ -28,8 +28,8 @@ class JobController < ApplicationController
   def update
     @job = Job.find(params[:id])
 
-    if @job.update!(job_params)
-      redirect @job
+    if @job.update(job_params)
+      redirect job_path(@job)
     else
       render :edit
     end
@@ -38,8 +38,8 @@ class JobController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
 
-    @job.delete!
-    redirect_to @job
+    @job.destroy
+    redirect_to jobs_path
   end
 
   private
