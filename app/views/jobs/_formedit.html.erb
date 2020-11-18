@@ -1,0 +1,30 @@
+<%= simple_form_for [ job ] do |f| %>
+  <%= f.input :title,
+               required: true,
+               autofocus: true,
+               hint: 'Enter a cool title for the job.' %>
+  <%= f.input :description,
+               required: true,
+               hint: 'Give us a full description.' %>
+  <%= f.input :pay,
+               as: :currency,
+               required: true,
+               hint: 'Enter monthly salary.' %>
+  <%= f.input :start_date,
+               as: :date,
+               required: true,
+               hint: 'Choose a start date.' %>
+  <%= f.input :deadline,
+               as: :date,
+               required: true,
+               hint: 'Choose a deadline.' %>
+  <%= f.input :banner_photo, as: :file,
+               hint: 'Upload a photo' %>
+
+  <%= f.submit class: "button-new" %>
+  <% if job.id.nil? %>
+    <%= link_to "Back to Jobs", jobs_path, class: "button-back" %>
+  <% else %>
+    <%= link_to "Back to Job", job_path, class: "button-back" %>
+  <% end %>
+<% end %>
