@@ -1,13 +1,10 @@
-<h1>Apply for this job [applications # new] </h1>
-<%# <%= simple_form_for [ @job, @review ] do |f| %>
+<h1>New Application</h1>
 <%= simple_form_for [ @job, @application ] do |f| %>
-  <%= f.input :applicant_id,
-               disabled: true,
-               autofocus: true %>
-  <%= f.input :job_id,
-               disabled: true %>
+  <p>Hello <strong><%= current_user.first_name %></strong>,<p>
+  <p>You are applying to <strong><%= @job.title %></strong></p>
+  <p><%= "Please upload your resume to proceed." %></p>
   <%= f.input :cv, as: :file,
-               required: true,
+               require: true,
                hint: 'Upload your resume',
                error: 'CV is mandatory, to apply' %>
   
