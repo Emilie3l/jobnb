@@ -24,36 +24,46 @@
   margin: 8px;
   position: relative;
   border-radius: 15px;
+  opacity: 0.9;
+  border: 1px solid grey;
 }
-.title-description {
+.card-title {
   position: absolute;
-  top: 30%;
+  top: 40%;
   width: 100%;
   text-align: center;
+  text-shadow: -1px 0px 5px black;
 }
-.description {
-  margin: 10px;
+.card-link {
+  color: white;
+}
+.card-link:hover {
+  font-weight: bold;
+  color: #A0EBFF;
 }
 
 .pay {
   position: absolute;
   bottom: 5px;
   right: 10px;
-  font-size: 10px;
+  font-size: 14px;
+  text-shadow: -1px 0px 5px black;
 }
 
 .start {
   position: absolute;
   bottom: 5px;
   left: 10px;
-  font-size: 10px;
+  font-size: 14px;
+  text-shadow: -1px 0px 5px black;
 }
 
 .deadline {
   position: absolute;
   top: 5px;
   right: 10px;
-  font-size: 10px;
+  font-size: 14px;
+  text-shadow: -1px 0px 5px black;
 }
 
 /* On mouse-over, add a deeper shadow */
