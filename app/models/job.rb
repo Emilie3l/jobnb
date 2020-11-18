@@ -16,6 +16,9 @@ class Job < ApplicationRecord
   has_many :applications
   has_many :applicants, through: :applications
 
+  # Banner photo Attachment
+  has_one_attached :banner_photo
+
   def start_date_cannot_be_in_the_past
     if start_date < Date.today
       errors.add(:start_date, "can't be in the past")

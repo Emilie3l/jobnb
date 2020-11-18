@@ -1,5 +1,8 @@
 <h1>Jobs # Show</h1>
 <p>Title: <%= @job.title %> <%= link_to "Apply now", new_job_application_path(@job) %></p>
+<% if @job.banner_photo.attached?  %>
+  <p><%= cl_image_tag @job.banner_photo.key, height: 300, width: 400, crop: :fill %></p>
+<% end %>
 <p>Description: <%= @job.description %></p>
 <p>Pay: <%= @job.pay %></p>
 <p>Start Date: <%= @job.start_date %></p>

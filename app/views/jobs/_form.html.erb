@@ -18,6 +18,8 @@
                as: :date,
                required: true,
                hint: 'Choose a deadline.' %>
+  <%= f.input :banner_photo, as: :file,
+               hint: 'Upload a photo' %>
   
   <%= f.submit class: "btn btn-primary" %>
   <% if job.id.nil? %>

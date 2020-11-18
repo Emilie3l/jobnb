@@ -6,6 +6,10 @@
                autofocus: true %>
   <%= f.input :job_id,
                disabled: true %>
+  <%= f.input :cv, as: :file,
+               required: true,
+               hint: 'Upload your resume',
+               error: 'CV is mandatory, to apply' %>
   
   <%= f.submit "Apply", class: "btn btn-primary" %>
 <% end %>

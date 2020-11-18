@@ -15,7 +15,7 @@ class ApplicationsController < ApplicationController
   private
   
   def application_params
-    params.require('Parameters').permit(:job_id)
+    params.require('Parameters').permit(:cv)
   end
   
   def set_application
