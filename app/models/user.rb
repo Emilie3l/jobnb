@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :owned_jobs, foreign_key: :employer_id, class_name: "Job", dependent: :destroy
   has_many :applications, foreign_key: :applicant_id
   has_many :jobs, through: :applications
+
+  # Profile photo attachment
+  has_one_attached :profile_photo
 end
