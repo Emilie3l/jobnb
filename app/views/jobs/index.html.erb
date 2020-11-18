@@ -1,6 +1,23 @@
-<h1>Current Jobs [Jobs # List]</h1>
-<ul>
-<% @jobs.each do |job| %>
-  <li><%= link_to job.title, job_path(job.id) %></li>
-<% end %>
-</ul>
+<div class="banner" style="background: linear-gradient(90deg, rgba(155,246,255,1) 0%, rgba(189,178,255,1) 100%);">
+  <div class="banner-content">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @jobs.each do |job| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card" style="background: white;">
+          <div class="card-description">
+            <div class="card-title">
+            <h2 class="title"><%= job.title %></h2>
+            </div>
+            <p class="pay">Salary: $<%= job.pay %></p>
+            <p class="start">Begins: <%= job.start_date.strftime('%b %d') %></p>
+            <p class="deadline">DEADLINE: <%= job.deadline.strftime('%b %d') %></p>
+          </div>
+          <%= link_to "", job_path(job), class: 'card-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
