@@ -1,0 +1,27 @@
+.button {
+  border-radius: 10px;
+  border: none;
+  height: 20vh;
+  width: 50vh;
+  box-shadow: 1px 1px 1px grey;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #9bf6ff;
+  padding: 10px 70px;
+  color: black;
+}
+
+.button:hover {
+  text-decoration: none;
+  color: black;
+  background-color: #b2b2ff;
+}
+
+.button-home {
+  position:sticky;
+}
+
+
+.button-purple {
+  border-radius: 15px;
+}

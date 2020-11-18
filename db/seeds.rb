@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -5,19 +6,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
 
-# Create 15 jobs
+user = User.create(
+email: Faker::Internet.email,
+phone_number: "1234567899",
+first_name: "Christina",
+last_name: "Bowers",
+password: 123456
+)
 15.times do
-  forward_days = rand(10)
-  random_deadline = rand(100)*10 + forward_days
-  user = User.all.sample
-  job = Job.new
-  job.title = Faker::Job.title
-  job.description = Faker::Lorem.paragraphs
-  job.pay = Faker::Number.number(digits: 5)
-  job.start_date = Faker::Date.forward(days: forward_days)
-  job.deadline = Faker::Date.forward(days: forward_days + random_deadline)
+  job = Job.new(
+    title: "#{Faker::Hipster.word.capitalize} #{Faker::Job.position}",
+    description: Faker::Lorem.sentence(word_count: 8),
+    pay: Faker::Number.number(digits: 5), #tostring?
+    start_date: Faker::Date.forward(days: 25),
+    deadline: Faker::Date.forward(days: forward_days + random_deadline)
+    )
   job.employer = user
   job.save
 end
