@@ -1,13 +1,15 @@
-<div class="container">
+<div class="container dynamic-text">
   <script src="typed.js"></script>
 
   <div class="container text-home">
     <div class="header">
       <h1>I do my best work <span id="typed"></span></h1>
     </div>
-
-    <div>
-      <%= link_to "Find a cool job 🔎", @jobs, class: "button button-home" %>
-    </div>
   </div>
+</div>
+
+<div class="button">
+  <%= link_to "Find a cool job 🔎", jobs_path, class: "button" %>
+</div>
+
 

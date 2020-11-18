@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2020_11_18_070314) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.bigint "applicant_id", null: false
+    t.bigint "user_id", null: false
     t.bigint "job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["applicant_id"], name: "index_applications_on_applicant_id"
     t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -74,6 +74,6 @@ ActiveRecord::Schema.define(version: 2020_11_18_070314) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "jobs"
-  add_foreign_key "applications", "users", column: "applicant_id"
+  add_foreign_key "applications", "users"
   add_foreign_key "jobs", "users", column: "employer_id"
 end
