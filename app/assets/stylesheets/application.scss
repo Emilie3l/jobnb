@@ -24,8 +24,11 @@
   margin: 8px;
   position: relative;
   border-radius: 15px;
-  opacity: 0.9;
+  opacity: 0.8;
   border: 1px solid grey;
+}
+.card:hover {
+  opacity: 1;
 }
 .card-title {
   position: absolute;
