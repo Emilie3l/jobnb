@@ -1,0 +1,6 @@
+<h1>Current Jobs [Jobs # List]</h1>
+<ul>
+<% @jobs.each do |job| %>
+  <li><%= link_to job.title, job_path(job.id) %></li>
+<% end %>
+</ul>
