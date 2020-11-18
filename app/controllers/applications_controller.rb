@@ -1,24 +1,27 @@
 class ApplicationsController < ApplicationController
+  before_action :set_application, only: [:new, :create]
+
   def new
-    @application = Application.new
-    @job = Job.find(params[:job_id])
   end
-
+  
   def create
-    @job = Job.find(params[:job_id])
-    @application = Application.new(application_params)
-    @application.job = @job
-
     if @application.save
-      redirect_to application_path(@application)
+      redirect_to job_path(@job)
     else
       render :new
     end
   end
-
+  
   private
-
+  
   def application_params
-    params.require('application').permit(:job_id, :user_id)
+    params.require('Parameters').permit(:job_id)
+  end
+  
+  def set_application
+    @application = Application.new
+    @job = Job.find(params[:job_id])
+    @application.job = @job
+    @application.applicant = current_user
   end
 end

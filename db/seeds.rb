@@ -6,6 +6,7 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 user = User.create(
 email: Faker::Internet.email,
 phone_number: "1234567899",
@@ -13,13 +14,13 @@ first_name: "Christina",
 last_name: "Bowers",
 password: 123456
 )
-10.times do
+15.times do
   job = Job.new(
-    title: Faker::Job.title,
+    title: "#{Faker::Hipster.word.capitalize} #{Faker::Job.position}",
     description: Faker::Lorem.sentence(word_count: 8),
-    pay: Faker::Number.number(digits: 6), #tostring?
+    pay: Faker::Number.number(digits: 5), #tostring?
     start_date: Faker::Date.forward(days: 25),
-    deadline: Faker::Date.forward(days: 5)
+    deadline: Faker::Date.forward(days: forward_days + random_deadline)
     )
   job.employer = user
   job.save

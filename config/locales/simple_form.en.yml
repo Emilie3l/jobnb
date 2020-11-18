@@ -19,6 +19,20 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
+    labels:
+      defaults:
+        title: 'Title Job'
+        description: 'Job Description'
+        pay: 'Monthly Payment'
+        start_date: 'Start Date'
+        deadline:  'Deadline Date'
+        edit:
+          title: 'New Title Job'
+          description: 'New Job Description'
+          pay: 'New Monthly Payment'
+          start_date: 'New Start Date'
+          deadline:  'New Deadline Date'
+
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'

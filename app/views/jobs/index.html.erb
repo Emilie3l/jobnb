@@ -8,13 +8,12 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card" style="background: white;">
           <div class="card-description">
-            <div class="title-description">
+            <div class="card-title">
             <h2 class="title"><%= job.title %></h2>
-            <p class="description"><%= job.description %></p>
             </div>
-            <p class="pay">Salary: <%= job.pay %></p>
-            <p class="start">Begins: <%= job.start_date %></p>
-            <p class="deadline">Deadline: <%= job.deadline %></p>
+            <p class="pay">Salary: $<%= job.pay %></p>
+            <p class="start">Begins: <%= job.start_date.strftime('%b %d') %></p>
+            <p class="deadline">DEADLINE: <%= job.deadline.strftime('%b %d') %></p>
           </div>
           <%= link_to "", job_path(job), class: 'card-link' %>
         </div>

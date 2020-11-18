@@ -1,2 +1,11 @@
-<h1>Applications#new</h1>
-<p>Find me in app/views/applications/new.html.erb</p>
+<h1>Apply for this job [applications # new] </h1>
+<%# <%= simple_form_for [ @job, @review ] do |f| %>
+<%= simple_form_for [ @job, @application ] do |f| %>
+  <%= f.input :applicant_id,
+               disabled: true,
+               autofocus: true %>
+  <%= f.input :job_id,
+               disabled: true %>
+  
+  <%= f.submit "Apply", class: "btn btn-primary" %>
+<% end %>

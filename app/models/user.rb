@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :phone_number, presence: true
 
   has_many :owned_jobs, foreign_key: :employer_id, class_name: "Job", dependent: :destroy
-  has_many :applications
+  has_many :applications, foreign_key: :applicant_id
   has_many :jobs, through: :applications
 end
