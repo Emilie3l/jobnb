@@ -14,7 +14,7 @@
             </div>
             <p class="pay">Salary: $<%= job.pay %></p>
             <p class="start">Begins: <%= job.start_date.strftime('%b %d') %></p>
-            <p class="deadline">⌛: <%= job.deadline.strftime('%b %d') %></p>
+            <p class="deadline">⌛<%= job.deadline.strftime('%b %d') %></p>
           </div>
         </div>
         <% end %>
