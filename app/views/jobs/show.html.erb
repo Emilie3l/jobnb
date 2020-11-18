@@ -16,6 +16,12 @@
 <h3>Current Applicants</h3>
 </ul>
 <% @job.applications.each do |application| %>
-  <li><%= "#{application.applicant.first_name} #{application.applicant.last_name} | #{application.applicant.email}" %></li>
+  <li><%= "#{application.applicant.first_name} #{application.applicant.last_name} | #{application.applicant.email}" %>
+  <% if application.cv.attached? %>
+    <%= link_to "CV", cloudinary_url(application.cv.key, transformation: "medium") %>
+    <%# https://res.cloudinary.com/luigirazum/image/upload/v1605731769/esfzj8jk9zqo9jzrtpv9d005t40w.pdf %>
+    <%# http://res.cloudinary.com/luigirazum/image/upload/hraphypz79f05agk4tc5dmd6gzwf %>
+  <% end %>
+  </li>
 <% end %>
 <ul>
