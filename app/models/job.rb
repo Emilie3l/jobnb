@@ -9,8 +9,8 @@ class Job < ApplicationRecord
   validates :start_date, :deadline, presence: true
   # start_date cannot be in the past
   # dealine must be greater that start_date
-  validate :start_date_cannot_be_in_the_past,
-           :deadline_must_be_greater_that_start_date
+  validate :start_date_validation,
+           :deadline_validation
 
   belongs_to :employer, class_name: "User"
   has_many :applications
@@ -19,15 +19,17 @@ class Job < ApplicationRecord
   # Banner photo Attachment
   has_one_attached :banner_photo
 
-  def start_date_cannot_be_in_the_past
+  def start_date_validation
     if start_date < Date.today
       errors.add(:start_date, "can't be in the past")
+    elsif start_date < deadline
+      errors.add(:start_date, "can't be before deadline")
     end
   end
-
-  def deadline_must_be_greater_that_start_date
-    if start_date >= deadline
-      errors.add(:deadline, "must be greater that start date")
+  
+  def deadline_validation
+    if deadline < Date.today
+      errors.add(:deadline, "can't be in the past")
     end
   end
 end
