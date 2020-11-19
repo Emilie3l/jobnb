@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # resources :applications >> is nested into jobs and just adds [new, create]
     resources :applications, only: [:new, :create]
   end
+  resources :users, only:[:show]
 end
