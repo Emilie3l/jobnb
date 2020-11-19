@@ -11,16 +11,18 @@
                required: true,
                hint: 'Enter monthly salary.' %>
   <%= f.input :start_date,
+               wrapper_html: { class: 'flex-select' },
                as: :date,
-               required: true,
+               html5: true,
                hint: 'Choose a start date.' %>
   <%= f.input :deadline,
+               wrapper_html: { class: 'flex-select' },
                as: :date,
-               required: true,
+               html5: true,
                hint: 'Choose a deadline.' %>
   <%= f.input :banner_photo, as: :file,
                hint: 'Upload a photo' %>
-  
+
   <%= f.submit class: "btn btn-primary" %>
   <% if job.id.nil? %>
     <%= link_to "Back to Jobs", jobs_path, class: "btn btn-primary" %>
