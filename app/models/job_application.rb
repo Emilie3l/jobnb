@@ -1,4 +1,4 @@
-class Application < ApplicationRecord
+class JobApplication < ApplicationRecord
   validates :cv, :job, :applicant, presence: true
   belongs_to :applicant, class_name: 'User'
   belongs_to :job

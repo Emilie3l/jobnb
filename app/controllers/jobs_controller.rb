@@ -7,8 +7,6 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
-    authorize @job
   end
 
   def new
@@ -19,6 +17,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     authorize @job
+
     @job.employer = current_user
 
     if @job.save
@@ -52,5 +51,12 @@ class JobsController < ApplicationController
   
   def set_job
     @job = Job.find(params[:id])
+    authorize @job
   end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(job_path)
+  end  
+
 end

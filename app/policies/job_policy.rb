@@ -15,6 +15,19 @@ class JobPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    # a job will be updated just by its creator
+    record.employer == user
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    update?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
