@@ -16,3 +16,83 @@
   text-decoration: none;
   color: black;
 }
+
+.button-home {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 50px;
+  width: 350px;
+  background-color: #9bf6ff;
+  color: black;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+  line-height: 50px;
+  letter-spacing: 1px;
+  //border: 1px solid #858585;
+}
+
+.button-home:hover {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+}
+
+.button-home-text {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+  line-height: 50px;
+}
+
+.button-home-text:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.button-see {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 32px;
+  width: 150px;
+  background-color: none;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  padding: auto;
+  line-height: 17px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  margin-right: 10px;
+  //border: 1px solid #858585;
+}
+
+.button-see:hover {
+  border: 1px solid black;
+}
+
+
+.button-post {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 32px;
+  width: 150px;
+  background-color: #b2b2ff;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  padding: auto;
+  line-height: 17px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  margin-right: 20px;
+  //border: 1px solid #858585;
+}
+
+.button-post:hover {
+  border: 1px solid black;
+}
