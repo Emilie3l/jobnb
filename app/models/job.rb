@@ -13,8 +13,8 @@ class Job < ApplicationRecord
            :deadline_validation
 
   belongs_to :employer, class_name: "User"
-  has_many :applications
-  has_many :applicants, through: :applications
+  has_many :job_applications
+  has_many :applicants, through: :job_applications
 
   # Banner photo Attachment
   has_one_attached :banner_photo

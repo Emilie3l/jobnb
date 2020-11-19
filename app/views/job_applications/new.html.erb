@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="new-text">New Application</h1>
-  <%= simple_form_for [ @job, @application ] do |f| %>
+  <%= simple_form_for [ @job, @job_application ] do |f| %>
     <p>Hello <strong><%= current_user.first_name %></strong>,<p>
     <p>You are applying to <strong><%= @job.title %></strong></p>
     <p><%= "Please upload your resume to proceed." %></p>

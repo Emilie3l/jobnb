@@ -7,36 +7,46 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 users = []
-users << { email: "test1@gmail.com",
+users << { email: "antonio@gmail.com",
            phone_number: "34289653489",
            first_name: "Antonio",
            last_name: "Banderas",
-           password: "test1234"}
-users << { email: "test2@gmail.com",
+           password: "tono1234"}
+users << { email: "calvin@gmail.com",
            phone_number: "5623908723",
            first_name: "Calvin",
            last_name: "Klein",
-           password: "test1234"}
-users << { email: "test3@gmail.com",
+           password: "cal1234"}
+users << { email: "carolina@gmail.com",
            phone_number: "5623908723",
            first_name: "Carolina",
            last_name: "Herrera",
-           password: "test1234"}
+           password: "caro1234"}
 users << { email: "emilie@gmail.com",
            phone_number: "5623908723",
            first_name: "Emilie",
            last_name: "Lockey",
-           password: "test1234"}
+           password: "emi1234"}
 users << { email: "christina@gmail.com",
            phone_number: "5623908723",
            first_name: "Christina",
            last_name: "Bowers",
-           password: "test1234"}
+           password: "chris1234"}
 users << { email: "luis@gmail.com",
            phone_number: "5623908723",
            first_name: "Luis",
            last_name: "Zubia",
-           password: "test1234"}
+           password: "luis1234"}
+users << { email: "lady@gmail.com",
+           phone_number: "5323908723",
+           first_name: "Lady",
+           last_name: "Chihuahua",
+           password: "lady1234"}
+users << { email: "francisco.pope@vatican.va",
+           phone_number: "5623908723",
+           first_name: "Francisco",
+           last_name: "Pope",
+           password: "papa1234"}
 
 puts 'Creating users...'
 users.each do |user|
