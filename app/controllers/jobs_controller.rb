@@ -3,19 +3,22 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @jobs = Job.all
+    @jobs = policy_scope(Job).order(deadline: :asc)
   end
 
   def show
     @job = Job.find(params[:id])
+    authorize @job
   end
 
   def new
     @job = Job.new
+    authorize @job
   end
 
   def create
     @job = Job.new(job_params)
+    authorize @job
     @job.employer = current_user
 
     if @job.save
