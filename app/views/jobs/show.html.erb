@@ -6,7 +6,7 @@
   </div>
     <div class="bottom-half p-2">
         <div class="left-side">
-          <%= link_to "Apply now", new_job_application_path(@job), class: "button-back"%>
+          <%= link_to "Apply now", new_job_job_application_path(@job), class: "button-back"%>
           <h4>Job Description:</h4>
             <p><%= @job.description %></p>
         </div>
@@ -21,10 +21,10 @@
             <%= link_to "Back to Jobs", jobs_path, class: "button-back"  %>
             <ul>
               <li class="inline-block">Posted by: <%= "#{@job.employer.first_name} #{@job.employer.last_name}" %></li>
-                <% @job.applications.each do |application| %>
-                  <li><%= "#{application.applicant.first_name} #{application.applicant.last_name} | #{application.applicant.email}" %>
-                  <% if application.cv.attached? %>
-                    <%= link_to "CV", cloudinary_url(application.cv.key, transformation: "medium") %>
+                <% @job.job_applications.each do |job_application| %>
+                  <li><%= "#{job_application.applicant.first_name} #{job_application.applicant.last_name} | #{job_application.applicant.email}" %>
+                  <% if job_application.cv.attached? %>
+                    <%= link_to "CV", cloudinary_url(job_application.cv.key, transformation: "medium") %>
                     <%# https://res.cloudinary.com/luigirazum/image/upload/v1605731769/esfzj8jk9zqo9jzrtpv9d005t40w.pdf %>
                     <%# http://res.cloudinary.com/luigirazum/image/upload/hraphypz79f05agk4tc5dmd6gzwf %></li>
                   <% end %>
