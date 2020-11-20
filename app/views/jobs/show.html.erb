@@ -24,11 +24,11 @@
      </div>
     </div>
     <div class="container">
-      <div class="button-apply">
         <% if policy(JobApplication.new(job: @job)).create? && !@job.applicants.include?(current_user) %>  
-          <%= link_to "Apply  🚀", new_job_application_path(@job), class: "button-apply-text" %>
+          <div class="button-apply">
+            <%= link_to "Apply  🚀", new_job_job_application_path(@job), class: "button-apply-text" %>
+          </div> 
         <% end %>  
-      </div> 
       <div class="update-buttons">
         <% if policy(@job).update? %>
            <%= link_to "Edit", edit_job_path, class: "button-back" %>
