@@ -146,3 +146,23 @@
   text-decoration: none;
   color: black;
 }
+
+.button-edit {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 45px;
+  width: 150px;
+  font-size: 15px;
+  background-color: #b2b2ff;
+  line-height: 43px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+.button-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
