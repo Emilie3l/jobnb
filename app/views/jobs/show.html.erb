@@ -9,7 +9,7 @@
       <div class="col-7">
         <p class="about-title"><strong>About the job:</strong></p>
         <div class="description">
-          <p><%= @job.description %></p>   
+          <p><%= @job.description %></p>
         </div>
       <div class="card-info col-2">
         <p><strong>Pay:</strong></p>
@@ -24,11 +24,11 @@
      </div>
     </div>
     <div class="container">
-      <div class="button-apply">
-        <% if policy(JobApplication.new(job: @job)).create? && !@job.applicants.include?(current_user) %>  
-          <%= link_to "Apply  🚀", new_job_application_path(@job), class: "button-apply-text" %>
-        <% end %>  
-      </div> 
+      <% if policy(JobApplication.new(job: @job)).create? && !@job.applicants.include?(current_user) %>
+        <div class="button-apply">
+          <%= link_to "Apply  🚀", new_job_job_application_path(@job), class: "button-apply-text" %>
+        </div>
+      <% end %>
       <div class="update-buttons">
         <% if policy(@job).update? %>
            <%= link_to "Edit", edit_job_path, class: "button-back" %>
@@ -37,9 +37,9 @@
                           data: { confirm: "Are you sure?" }, class: "button-back" %>
         <% end %>
       </div>
-      <div class="back-button">  
+      <div class="back-button">
         <%= link_to "", jobs_path, class: "button-back-show fas fa-times"%>
-      </div> 
+      </div>
       <div>
          <ul>
             <li class="inline-block">Posted by: <%= "#{@job.employer.first_name} #{@job.employer.last_name}" %></li>

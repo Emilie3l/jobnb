@@ -1,21 +1,35 @@
-<div class="container">
-  <div class="row">
-    <% @user.jobs.each do |job| %>
-      <div class="col-12 col-md-6 col-lg-4">
-        <%= link_to job_path(job), class: 'card-link' do %>
-        <div class="card" style="background-size: cover; background-image: url('<%= job.banner_photo.attached? ? cl_image_path(job.banner_photo.key) : 'https://source.unsplash.com/random' %>');">
-          <div class="card-description">
-            <div class="card-title">
-            <h2 class="title">Job Applicatins<%= job.title %></h2>
-            </div>
-            <p class="pay">Salary: $<%= job.pay %></p>
-            <p class="start">Begins: <%= job.start_date.strftime('%b %d') %></p>
-            <p class="deadline">⌛<%= job.deadline.strftime('%b %d') %></p>
-          </div>
-        </div>
-        <% end %>
+<div class="container card-large new-job p-0">
+  <div class="container">
+      <div class="my-profile">
+        <h1>🎉Welcome, <%= @user.first_name.capitalize %>! </h1>
       </div>
-    <% end %>
-  </div>
+      <div class="button-center">
+        <div class="button-edit"><%= link_to "Edit Profile", edit_user_registration_path %></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="my-jobs">
+        <h2><strong>My Jobs</strong></h2>
+          <% @user.owned_jobs.each do |job| %>
+          <div class="card-user-profile">
+            <div class="job-salary"><h3><%= job.title %></h3><p><strong>💰Salary:</strong>  $<%= job.pay %>/monthly</p></div>
+            <p><strong>Begins:</strong> <%= job.start_date.strftime('%b %d') %>   ⌛<strong>Deadline:</strong> <%= job.deadline.strftime('%b %d') %></p>
+          </div>
+          <% end %>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="my-applications">
+        <h2><strong>My Applications</strong></h2>
+          <% @user.job_applications.each do |application| %>
+          <div class="card-user-profile">
+            <div class="job-salary"><h3><%= application.job.title %></h3><p><strong>💰Salary:</strong> $<%= application.job.pay %>/monthly</p></div>
+            <p><strong>Applied:</strong> <%= application.created_at.strftime('%b %d') %> • <strong>Posted by:</strong> <%= application.job.employer.first_name %> <%= application.job.employer.last_name %></p>
+          </div>
+          <% end %>
+      </div>
+    </div>
 </div>
-<div><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-tag" %></div>
+
