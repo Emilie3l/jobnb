@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_11_19_211316) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "applications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
+
   create_table "job_applications", force: :cascade do |t|
     t.bigint "applicant_id", null: false
     t.bigint "job_id", null: false
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_11_19_211316) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "applications", "jobs"
+  add_foreign_key "applications", "users"
   add_foreign_key "job_applications", "jobs"
   add_foreign_key "job_applications", "users", column: "applicant_id"
   add_foreign_key "jobs", "users", column: "employer_id"
