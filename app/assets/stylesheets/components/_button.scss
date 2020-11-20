@@ -19,8 +19,8 @@
 
 .button-home {
   text-decoration: none;
-  border-radius: 25px;
-  height: 50px;
+  border-radius: 35px;
+  height: 60px;
   width: 350px;
   background-color: #9bf6ff;
   color: black;
@@ -28,8 +28,9 @@
   font-size: 20px;
   text-align: center;
   margin: auto;
-  line-height: 50px;
+  line-height: 63px;
   letter-spacing: 1px;
+  font-weight: 600;
   //border: 1px solid #858585;
 }
 
@@ -56,47 +57,52 @@
 
 .button-see {
   text-decoration: none;
-  border-radius: 25px;
-  height: 32px;
-  width: 150px;
+  border-radius: 30px;
+  height: 60px;
+  width: 100px;
   background-color: none;
   color: black;
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
-  padding: auto;
-  line-height: 17px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-  margin-right: 10px;
+  line-height: 45px;
+  margin-top: 5px;
+  margin-right: 40px;
+  margin-left: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  font-weight: 600;
   //border: 1px solid #858585;
 }
 
 .button-see:hover {
-  border: 1px solid black;
-  line-height: 16px;
+  //border: 1px solid black;
+  line-height: 44px;
+  background-color: #8c8cff;
 }
 
 
 .button-post {
   text-decoration: none;
-  border-radius: 25px;
-  height: 32px;
-  width: 150px;
-  background-color: #b2b2ff;
   color: black;
-  font-size: 16px;
+  line-height: 45px;
+  width: 100px;
+  background-color: #b2b2ff;
+  font-size: 15px;
   text-align: center;
-  padding: auto;
-  line-height: 17px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-  margin-right: 20px;
+  margin-right: 50px;
   //border: 1px solid #858585;
+  border-radius: 30px;
+  height: 60px;
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
 .button-post:hover {
-  border: 1px solid black;
-  line-height: 16px;
+  line-height: 44px;
+  background-color: #8c8cff;
+  color: black;
 }
 
 .button-apply {
