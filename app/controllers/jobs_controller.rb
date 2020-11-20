@@ -3,7 +3,13 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @jobs = policy_scope(Job).order(deadline: :asc)
+    @jobs = policy_scope(Job)
+
+    if params[:query].present?
+      @jobs = Job.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @jobs = policy_scope(Job).order(deadline: :asc)
+    end
   end
 
   def show
@@ -37,18 +43,18 @@ class JobsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @job.destroy
     redirect_to jobs_path
   end
-  
+
   private
-  
+
   def job_params
     params.require('job').permit(:title, :description, :pay, :start_date, :deadline, :banner_photo)
   end
-  
+
   def set_job
     @job = Job.find(params[:id])
     authorize @job
@@ -57,6 +63,6 @@ class JobsController < ApplicationController
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to job_path
-  end  
+  end
 
 end
