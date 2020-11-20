@@ -37,9 +37,7 @@
           <% end %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <div><%= link_to "My applications", edit_user_registration_path, class: "dropdown-tag" %></div>
-            <div><%= link_to "My jobs", edit_user_registration_path, class: "dropdown-tag" %></div>
-            <div><%= link_to "view profile", user_path(current_user), class: "dropdown-tag" %></div>
+            <div><%= link_to "My Profile", user_path(current_user), class: "dropdown-tag" %></div>
             <div><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-tag" %></div>
           </div>
         </li>
