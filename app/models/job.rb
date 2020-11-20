@@ -13,23 +13,32 @@ class Job < ApplicationRecord
            :deadline_validation
 
   belongs_to :employer, class_name: "User"
-  has_many :applications
-  has_many :applicants, through: :applications
+  has_many :job_applications
+  has_many :applicants, through: :job_applications
 
   # Banner photo Attachment
   has_one_attached :banner_photo
 
   def start_date_validation
-    if start_date < Date.today
-      errors.add(:start_date, "can't be in the past")
-    elsif start_date < deadline
-      errors.add(:start_date, "can't be before deadline")
+    if start_date.nil? || deadline.nil?
+      errors.add(:start_date, "you must pick the date")
+      errors.add(:deadline, "you must pick a date")
+    else
+      if start_date < Date.today
+        errors.add(:start_date, "can't be in the past")
+      elsif start_date < deadline
+        errors.add(:start_date, "can't be before deadline")
+      end
     end
   end
   
   def deadline_validation
-    if deadline < Date.today
-      errors.add(:deadline, "can't be in the past")
+    if deadline.nil?
+      errors.add(:deadline, "you must pick a date")
+    else
+      if deadline < Date.today
+        errors.add(:deadline, "can't be in the past")
+      end
     end
   end
 end

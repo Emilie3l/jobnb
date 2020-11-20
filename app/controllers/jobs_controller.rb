@@ -3,19 +3,21 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @jobs = Job.all
+    @jobs = policy_scope(Job).order(deadline: :asc)
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def new
     @job = Job.new
+    authorize @job
   end
 
   def create
     @job = Job.new(job_params)
+    authorize @job
+
     @job.employer = current_user
 
     if @job.save
@@ -49,5 +51,12 @@ class JobsController < ApplicationController
   
   def set_job
     @job = Job.find(params[:id])
+    authorize @job
   end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to job_path
+  end  
+
 end
