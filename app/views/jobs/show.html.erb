@@ -7,7 +7,7 @@
 
   <div class="container">
     <div class="row justify-content-between m-3">
-      <div class="col-7">
+      <div class="col-7 left-box">
         <p class="about-title"><strong>About the job:</strong></p>
         <div class="description"><p><%= @job.description %></p></div>
       </div>
@@ -15,6 +15,13 @@
         <p><strong>🤑 Pay:</strong></p>
         <p><strong>🚀 Start Date:</strong></p>
         <p><strong>⏰ Deadline:</strong></p>
+      </div>
+      <div class="col-2 card-input pl-0">
+        <p><%= @job.pay %></p>
+        <p><%= @job.start_date.strftime('%b %d') %></p>
+        <p><%= @job.deadline.strftime('%b %d') %></p>
+      </div>
+    </div>
   </div>
 
   <div class="container">
@@ -44,3 +51,5 @@
     </div>
   </div>
 </div>
+
+
