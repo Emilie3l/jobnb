@@ -73,6 +73,7 @@
 
 .button-see:hover {
   border: 1px solid black;
+  line-height: 16px;
 }
 
 
@@ -95,4 +96,46 @@
 
 .button-post:hover {
   border: 1px solid black;
+  line-height: 16px;
+}
+
+.button-apply {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 45px;
+  width: 200px;
+  background-color: #9bf6ff;
+  font-size: 17px;
+  text-align: center;
+  line-height: 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: auto;
+  margin: auto;
+}
+
+.button-apply:hover {
+  text-decoration: none;
+  border-radius: 25px;
+  height: 45px;
+  width: 200px;
+  font-size: 17px;
+  background-color: #b2b2ff;
+  line-height: 43px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid black;
+}
+
+.button-apply-text {
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.button-apply-text:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #b2b2ff;
 }
