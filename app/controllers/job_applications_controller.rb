@@ -1,12 +1,13 @@
 class JobApplicationsController < ApplicationController
   before_action :set_job, only: [:new, :create]
+  before_action :set_job_application, only: [:destroy]
 
   def new
   end
   
   def create
     if params[:job_application]
-      @job_application = JobApplication.new(application_params)
+      @job_application = JobApplication.new(job_application_params)
     else
       @job_application = JobApplication.new
     end
@@ -22,10 +23,16 @@ class JobApplicationsController < ApplicationController
       render :new
     end
   end
-  
+
+  def destroy
+    @job = @job_application.job
+    @job_application.destroy
+    redirect_to job_path(@job)
+  end
+
   private
   
-  def application_params
+  def job_application_params
     params.require(:job_application).permit(:cv)
   end
   
@@ -39,9 +46,15 @@ class JobApplicationsController < ApplicationController
     authorize @job_application
   end
 
+  def set_job_application
+    @job_application = JobApplication.find(params[:id])
+
+    authorize @job_application
+  end
+
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
-    redirect_to job_path(@job)
+    redirect_to job_path(@job_application.job)
   end  
 
 end

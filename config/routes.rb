@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # resources :jobs >> Adds the seven routes [index, show, new, create, edit, update, destroy]
   resources :jobs do
   # resources :applications >> is nested into jobs and just adds [new, create]
-    resources :job_applications, only: [:new, :create]
+    resources :job_applications, only: [:new, :create, :edit, :update]
   end
+
+  resources :job_applications, only: [:destroy]
 end
