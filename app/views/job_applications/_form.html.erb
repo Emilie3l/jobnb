@@ -1,0 +1,11 @@
+<%= simple_form_for [ job, job_application ] do |f| %>
+  <p>Hello <strong><%= current_user.first_name %></strong>,<p>
+  <p>You are applying to <strong><%= job.title %></strong></p>
+  <p><%= "Please upload your resume to proceed." %></p>
+  <%= f.input :cv, as: :file,
+               require: true,
+               hint: 'Upload your resume',
+               error: 'CV is mandatory, to apply' %>
+
+   <%= f.submit "Apply", class: "button-back" %>
+<% end %>
