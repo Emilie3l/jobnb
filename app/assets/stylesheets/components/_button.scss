@@ -107,6 +107,7 @@
 
 .button-apply {
   text-decoration: none;
+  color: black;
   border-radius: 25px;
   height: 45px;
   width: 200px;
@@ -119,6 +120,7 @@
   font-weight: 600;
   padding: auto;
   margin: auto;
+  padding-left: 4px;
 }
 
 .button-apply:hover {
@@ -127,23 +129,22 @@
   height: 45px;
   width: 200px;
   font-size: 17px;
-  background-color: #b2b2ff;
+  background-color: #8c8cff;
   line-height: 43px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border: 1px solid black;
 }
 
 .button-apply-text {
   text-decoration: none;
   color: black;
-  margin-bottom: 10px;
+  line-height: 44px;
+  //margin-bottom: 10px;
 }
 
 .button-apply-text:hover {
   text-decoration: none;
-  color: white;
-  background-color: #b2b2ff;
+  color: black;
 }
 
 .button-edit {

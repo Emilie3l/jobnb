@@ -1,32 +1,45 @@
-<%= simple_form_for [ job ] do |f| %>
-  <%= f.input :title,
-               required: true,
-               autofocus: true,
-               hint: 'Enter a cool title for the job.' %>
-  <%= f.input :description,
-               required: true,
-               hint: 'Give us a full description.' %>
-  <%= f.input :pay,
-               as: :currency,
-               required: true,
-               hint: 'Enter monthly salary.' %>
-  <%= f.input :start_date,
-               wrapper_html: { class: 'flex-select' },
-               as: :date,
-               html5: true,
-               hint: 'Choose a start date.' %>
-  <%= f.input :deadline,
-               wrapper_html: { class: 'flex-select' },
-               as: :date,
-               html5: true,
-               hint: 'Choose a deadline.' %>
-  <%= f.input :banner_photo, as: :file,
-               hint: 'Upload a photo' %>
+<div class="row">
+  <div class="col-8">
+  <%= simple_form_for [ job ] do |f| %>
+    <%= f.input :title,
+                required: true,
+                autofocus: true,
+                hint: 'Enter a cool title for the job.' %>
+    <%= f.input :description,
+                required: true,
+                hint: 'Give us a full description.' %>
+    <%= f.input :banner_photo, as: :file,
+                hint: 'Upload a photo' %>
 
-  <%= f.submit class: "btn btn-primary" %>
-  <% if job.id.nil? %>
-    <%= link_to "Back to Jobs", jobs_path, class: "btn btn-primary" %>
-  <% else %>
-    <%= link_to "Back to Job", job_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-4">
+    <%= f.input :pay,
+                as: :currency,
+                required: true,
+                hint: 'Enter monthly salary.' %>
+    <%= f.input :start_date,
+                wrapper_html: { class: 'flex-select' },
+                as: :date,
+                html5: true,
+                hint: 'Choose a start date.' %>
+    <%= f.input :deadline,
+                wrapper_html: { class: 'flex-select' },
+                as: :date,
+                html5: true,
+                hint: 'Choose a deadline.' %>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col-12 mb-3">
+    <%= f.submit class: "btn button-apply button-apply-text" %>
+    <% if job.id.nil? %>
+      <%= link_to "Back to Jobs", jobs_path, class: "btn button-apply button-apply-text" %>
+    <% else %>
+      <%= link_to "Back to Job", job_path, class: "btn button-apply button-apply-text" %>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
+</div>
+

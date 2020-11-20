@@ -3,8 +3,10 @@
       <div class="my-profile">
         <h1>🎉Welcome, <%= @user.first_name.capitalize %>! </h1>
       </div>
+        <div class="button-apply">
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "button-apply-text"%>
+        </div>
       <div class="button-center">
-        <div class="button-edit"><%= link_to "Edit Profile", edit_user_registration_path %></div>
       </div>
     </div>
     <div class="container">
