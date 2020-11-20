@@ -1,35 +1,67 @@
-<div class="container new-job p-0">
-  <div class="job-banner" style="background-size: cover; background-image: url('<%= @job.banner_photo.attached? ? cl_image_path(@job.banner_photo.key) : 'https://source.unsplash.com/random' %>');">
-    <div class="job-banner-content">
+<div class="container card-large new-job p-0">
+  <div class="job-banner-show" style="background-size: cover; background-image: url('<%= @job.banner_photo.attached? ? cl_image_path(@job.banner_photo.key) : 'https://source.unsplash.com/random' %>');">
+    <div class="job-banner-content-show">
        <h2><%= @job.title %></h2>
     </div>
   </div>
-    <div class="bottom-half p-2">
-        <div class="left-side">
-          <%= link_to "Apply now", new_job_application_path(@job), class: "button-back"%>
-          <h4>Job Description:</h4>
-            <p><%= @job.description %></p>
+  <div class="container card-large-body d-flex">
+    <div class="row m-3">
+      <div class="col-7">
+        <p class="about-title"><strong>About the job:</strong></p>
+        <div class="description">
+          <p><%= @job.description %></p>   
         </div>
-        <div class="right-side">
-          <p>Pay: $<%= @job.pay %></p>
-          <p>Start Date: <%= @job.start_date.strftime('%b %d') %></p>
-          <p>Deadline: <%= @job.deadline.strftime('%b %d') %></p>
-            <%= link_to "Edit", edit_job_path, class: "button-back" %>
-            <%= link_to "Delete", job_path,
-                                    method: :delete,
-                                    data: { confirm: "Are you sure?" },class: "button-back" %>
-            <%= link_to "Back to Jobs", jobs_path, class: "button-back"  %>
-            <ul>
-              <li class="inline-block">Posted by: <%= "#{@job.employer.first_name} #{@job.employer.last_name}" %></li>
-                <% @job.applications.each do |application| %>
-                  <li><%= "#{application.applicant.first_name} #{application.applicant.last_name} | #{application.applicant.email}" %>
-                  <% if application.cv.attached? %>
-                    <%= link_to "CV", cloudinary_url(application.cv.key, transformation: "medium") %>
-                    <%# https://res.cloudinary.com/luigirazum/image/upload/v1605731769/esfzj8jk9zqo9jzrtpv9d005t40w.pdf %>
-                    <%# http://res.cloudinary.com/luigirazum/image/upload/hraphypz79f05agk4tc5dmd6gzwf %></li>
-                  <% end %>
-                <% end %>
-              </ul>
-        </div>
+      <div class="card-info col-2">
+        <p><strong>Pay:</strong></p>
+        <p><strong>Start Date:</strong></p>
+        <p><strong>Deadline:</strong></p>
+      </div>
+      <div class="card-input col-2">
+        <p><%= @job.pay %></p>
+        <p><%= @job.start_date.strftime('%b %d') %></p>
+        <p><%= @job.deadline.strftime('%b %d') %></p>
+      </div>
+     </div>
     </div>
+    <div class="container">
+      <div class="button-apply">
+        <% if policy(JobApplication.new(job: @job)).create? && !@job.applicants.include?(current_user) %>  
+          <%= link_to "Apply  🚀", new_job_application_path(@job), class: "button-apply-text" %>
+        <% end %>  
+      </div> 
+      <div class="update-buttons">
+        <% if policy(@job).update? %>
+           <%= link_to "Edit", edit_job_path, class: "button-back" %>
+           <%= link_to "Delete", job_path,
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }, class: "button-back" %>
+        <% end %>
+      </div>
+      <div class="back-button">  
+        <%= link_to "", jobs_path, class: "button-back-show fas fa-times"%>
+      </div> 
+      <div>
+         <ul>
+            <li class="inline-block">Posted by: <%= "#{@job.employer.first_name} #{@job.employer.last_name}" %></li>
+              <% if policy(@job).update? %>
+                <% @job.job_applications.each do |job_application| %>
+                  <li><%= "#{job_application.applicant.first_name} #{job_application.applicant.last_name} | #{job_application.applicant.email}" %>
+                    <% if job_application.cv.attached? %>
+                      <%= link_to "CV", cloudinary_url(job_application.cv.key, transformation: "medium") %>
+                      <%# https://res.cloudinary.com/luigirazum/image/upload/v1605731769/esfzj8jk9zqo9jzrtpv9d005t40w.pdf %>
+                      <%# http://res.cloudinary.com/luigirazum/image/upload/hraphypz79f05agk4tc5dmd6gzwf %></li>
+                    <% end %>
+                 <% end %>
+              <% end %>
+                 <% if @job.applicants.include?(current_user) %>
+                   <% @job_application = JobApplication.find_by(applicant: current_user, job: @job) %>
+                   <p>You've applied on <%= @job_application.created_at.strftime('%b %d') %>
+                   <%= link_to "Decline", job_application_path(@job_application),
+                                     method: :delete,
+                                     data: { confirm: "Are you sure?" }, class: "button-back" %></p>
+                 <% end %>
+         </ul>
+      <div>
+    </div>
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_070314) do
+ActiveRecord::Schema.define(version: 2020_11_19_211316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 2020_11_18_070314) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "applications", force: :cascade do |t|
+  create_table "job_applications", force: :cascade do |t|
     t.bigint "applicant_id", null: false
     t.bigint "job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["applicant_id"], name: "index_applications_on_applicant_id"
-    t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["applicant_id"], name: "index_job_applications_on_applicant_id"
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_070314) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applications", "jobs"
-  add_foreign_key "applications", "users", column: "applicant_id"
+  add_foreign_key "job_applications", "jobs"
+  add_foreign_key "job_applications", "users", column: "applicant_id"
   add_foreign_key "jobs", "users", column: "employer_id"
 end

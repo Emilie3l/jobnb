@@ -1,5 +1,8 @@
-<div class="container">
-  <div class="row">
+
+
+<div class="cards-container index-body justify-content-between">
+  <h1 class="title-show"><strong>Opportunities near you</strong></h1>
+  <div class="row cards">
     <% @jobs.each do |job| %>
       <div class="col-12 col-md-6 col-lg-4">
         <%= link_to job_path(job), class: 'card-link' do %>
